@@ -74,18 +74,18 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
-    // new Typewriter(writeText.current, {
-    //   strings: [
-    //     "Web Developer",
-    //     "MERN Developer",
-    //     "Frontend Developer",
-    //     "Backend Developer",
-    //   ],
-    //   autoStart: true,
-    //   loop: true,
-    //   delay: 100,
-    //   deleteSpeed: 100
-    // });
+    new Typewriter(writeText.current, {
+      strings: [
+        "Web Developer",
+        "MERN Developer",
+        "Frontend Developer",
+        "Backend Developer",
+      ],
+      autoStart: true,
+      loop: true,
+      delay: 100,
+      deleteSpeed: 100
+    });
     getRepos();
   }, [getRepos]);
 
