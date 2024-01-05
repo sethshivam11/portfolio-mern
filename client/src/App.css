@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Inika&family=Inter&family=Istok+Web&family=Poppins&display=swap");
+
+.font-poppins{
+  font-family: "Poppins", "sans-serif";
+}
+
+.ellipse-red {
+  width: 145.86681rem;
+  height: 88.00194rem;
+  border-radius: 145.86681rem;
+  position: absolute;
+  transform: translate(7%, -70%) rotate(-46.693deg);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #e99595 0%,
+    rgba(255, 253, 253, 0) 100%
+  );
+  filter: blur(2px);
+}
+
+.ellipse-green {
+  position: absolute;
+  width: 131.0625rem;
+  height: 72.9375rem;
+  transform: rotate(44.042deg) translate(-70%, 6%);
+  border-radius: 131.0625rem;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #c6f4e4 0%,
+    rgba(255, 253, 253, 0) 100%
+  );
+  filter: blur(2px);
+}
+
+.ellipse-blue {
+  position: absolute;
+  width: 103.6245rem;
+  height: 80.03763rem;
+  transform: rotate(-48.69deg) translate(-55%, -35%);
+  border-radius: 103.6245rem;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #a8c6e2 0%,
+    rgba(255, 253, 253, 0) 100%
+  );
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #f2e5b6 0%,
+    rgba(255, 253, 253, 0) 100%
+  );
+  filter: blur(2px);
+}
+
+.ellipse-yellow {
+  position: absolute;
+  width: 45.125rem;
+  height: 125.71556rem;
+  transform: rotate(-39.875deg);
+  border-radius: 125.71556rem;
+  filter: blur(5px);
+}
