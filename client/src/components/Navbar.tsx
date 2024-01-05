@@ -14,7 +14,6 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
-import logo from "../assets/logo.jpeg";
 
 export function StickyNavbar({ home, skills, projects, contact, avatar }: Props) {
   // { setViewImage }: Props
