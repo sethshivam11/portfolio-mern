@@ -23,7 +23,7 @@ export const CardDefault: React.FC<CardDefault> = ({
   visit,
 }) => {
   return (
-    <Card className="mt-6 w-1/3 p-8 font-poppins md:w" placeholder="">
+    <Card className="mt-6 w-1/3 p-4 font-poppins" placeholder="">
       <CardHeader color="white" className="grid items-center relative h-fit" placeholder="">
         <img src={image} className="object-fill" alt="card-image" />
       </CardHeader>
@@ -39,11 +39,11 @@ export const CardDefault: React.FC<CardDefault> = ({
         <Typography placeholder="">{details}</Typography>
       </CardBody>
       <CardFooter className="pt-0" placeholder="">
-        <Button placeholder="" onClick={() => window.open(visit, "_blank")}>
+        <Button placeholder="" className="mr-4 mt-2" onClick={() => window.open(visit, "_blank")}>
           Visit
         </Button>
         <Button
-          className="ml-4"
+          className="mt-2"
           placeholder=""
           variant="outlined"
           onClick={() => window.open(code, "_blank")}

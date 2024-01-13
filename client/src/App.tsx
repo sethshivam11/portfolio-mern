@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import { StickyNavbar } from "./components/Navbar.tsx";
 import react from "./assets/react.svg";
@@ -12,6 +12,8 @@ import { CardDefault } from "./components/CardDefault.tsx";
 import { InputDefault } from "./components/InputDefault.tsx";
 import { TextareaDefault } from "./components/TextAreaDefault.tsx";
 import Typewriter from "typewriter-effect/dist/core";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 interface repo {
   homepage: string;
@@ -31,6 +33,13 @@ function App() {
   // const [viewImage, setViewImage] = useState<boolean>(false);
   const [avatar, setAvatar] = useState<string>("");
   const [repos, setRepos] = useState<repo[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({
+    name: "",
+    phone: "",
+    message: "",
+    email: "",
+  });
   const images: string[] = [
     "gadgetstore!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704454805/gadget-store/wanff6jdipyajbvr0ivy.png",
     "chatapp!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456419/gadget-store/coz0elqxhrucgsfefwf8.png",
@@ -73,6 +82,44 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
+  const inputChange = (e: ChangeEvent) => {
+    let input = e.target as HTMLInputElement;
+    e.preventDefault();
+    setMessage({ ...message, [input.name]: input.value });
+  };
+  const saveMessage = async () => {
+    if (
+      !(
+        message.name.length ||
+        message.email.length ||
+        message.message.length ||
+        message.phone.length
+      )
+    )
+      return;
+    setLoading(true);
+    console.log(message);
+    await fetch("/api/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.message === "Message saved successfully") {
+          setLoading(false);
+          setMessage({ name: "", message: "", phone: "", email: "" });
+          toast.success("Message sent successfully");
+        }
+      })
+      .catch((err) => {
+        console.log(`Some Error Occured \n${err}`);
+        setLoading(false);
+        toast.error("Some error occured");
+      });
+  };
   useEffect(() => {
     new Typewriter(writeText.current, {
       strings: [
@@ -84,13 +131,14 @@ function App() {
       autoStart: true,
       loop: true,
       delay: 100,
-      deleteSpeed: 100
+      deleteSpeed: 100,
     });
     getRepos();
   }, [getRepos]);
 
   return (
     <section className="overflow-hidden relative scroll-smooth">
+      <Toaster position="bottom-center" reverseOrder={false} />
       <div className="ellipse-red" />
       <div className="ellipse-green" />
       {/* setViewImage={setViewImage} */}
@@ -103,24 +151,24 @@ function App() {
       />
       <div
         ref={home}
-        className="flex flex-col items-start justify-center h-fit py-8 w-screen z-10 border-solid border-b-2 border-gray-300"
+        className="flex flex-col items-start justify-center h-fit py-32 w-screen z-10 border-solid border-b-2 border-gray-300"
       >
         <Typography
           placeholder=""
-          className="inline-block text-[#54877BB9] text-[60px] font-normal font-inika ml-20 mt-10"
+          className="inline-block text-[#54877BB9] text-5xl font-normal font-inika ml-20 py-1"
         >
           Hi I'm a
         </Typography>
         <Typography
           placeholder=""
           ref={writeText}
-          className="inline-block text-neutral-900 text-[80px] font-normal font-istok ml-20"
+          className="inline-block text-neutral-900 text-7xl font-normal font-istok ml-20 pb-2"
         >
           Web Developer
         </Typography>
         <Typography
           placeholder=""
-          className="text-xl text-justify w-2/5 ml-20 font-poppins"
+          className="text-xl text-justify w-2/5 ml-20 font-poppins pt-4"
         >
           Shivam Soni, an passionate developer. Currently, pursuing my
           Bachelor's in Computer Science from Atma Ram Sanatan Dharma College.
@@ -302,7 +350,7 @@ function App() {
         >
           Projects
         </Typography>
-        <div className="flex gap-2 flex-row justiy-center flex-wrap w-screen px-10 font-poppins">
+        <div className="flex justify-center w-screen px-10 font-poppins">
           {repos.map((repo) => {
             return (
               <CardDefault
@@ -321,12 +369,41 @@ function App() {
         ref={contact}
         className="w-full h-fit px-20 my-8 py-8 border-t-2 border-solid border-gray-200 font-poppins"
       >
-        <Typography placeholder="" className="bg-white text-4xl font-serif">
+        <Typography
+          placeholder=""
+          className="bg-white text-4xl font-serif pb-6"
+        >
           Connect with me...
         </Typography>
-        <InputDefault name="Email" />
-        <TextareaDefault message="Message" />
-        <Button placeholder="" className="ml-4 capitalize" size="lg">
+        <InputDefault name="Name" value={message.name} onChange={inputChange} />
+        <InputDefault
+          name="Phone"
+          value={message.phone}
+          onChange={inputChange}
+        />
+        <InputDefault
+          name="Email"
+          value={message.email}
+          onChange={inputChange}
+        />
+        <TextareaDefault
+          message="Message"
+          value={message.message}
+          onChange={inputChange}
+        />
+        <Button
+          placeholder=""
+          onClick={saveMessage}
+          loading={loading}
+          className="ml-4 capitalize"
+          size="lg"
+          disabled={
+            message.name.length == 0 ||
+            message.phone.length == 0 ||
+            message.message.length == 0 ||
+            message.email.length == 0
+          }
+        >
           Submit
         </Button>
       </div>
