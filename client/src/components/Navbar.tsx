@@ -16,7 +16,6 @@ import {
 } from "@material-tailwind/react";
 
 export function StickyNavbar({ home, skills, projects, contact, avatar }: Props) {
-  // { setViewImage }: Props
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -34,7 +33,7 @@ export function StickyNavbar({ home, skills, projects, contact, avatar }: Props)
         variant="small"
         color="blue-gray"
         onClick={() => home.current.scrollIntoView()}
-        className="p-1 font-normal text-xl cursor-pointer font-poppins"
+        className="p-1 font-normal text-xl cursor-pointer font-poppins mx-auto"
       >
         Home
       </Typography>
@@ -44,7 +43,7 @@ export function StickyNavbar({ home, skills, projects, contact, avatar }: Props)
         variant="small"
         color="blue-gray"
         onClick={() => skills.current.scrollIntoView()}
-        className="p-1 font-normal text-xl cursor-pointer font-poppins"
+        className="p-1 font-normal text-xl cursor-pointer font-poppins mx-auto"
       >
         Skills
       </Typography>
@@ -54,7 +53,7 @@ export function StickyNavbar({ home, skills, projects, contact, avatar }: Props)
         variant="small"
         color="blue-gray"
         onClick={() => projects.current.scrollIntoView()}
-        className="p-1 font-normal text-xl cursor-pointer font-poppins"
+        className="p-1 font-normal text-xl cursor-pointer font-poppins mx-auto"
       >
         Projects
       </Typography>
@@ -64,7 +63,7 @@ export function StickyNavbar({ home, skills, projects, contact, avatar }: Props)
         variant="small"
         color="blue-gray"
         onClick={() => contact.current.scrollIntoView()}
-        className="p-1 font-normal text-xl cursor-pointer font-poppins"
+        className="p-1 font-normal text-xl cursor-pointer font-poppins mx-auto"
       >
         Contact
       </Typography>

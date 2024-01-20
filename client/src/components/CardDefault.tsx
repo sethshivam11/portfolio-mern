@@ -23,7 +23,7 @@ export const CardDefault: React.FC<CardDefault> = ({
   visit,
 }) => {
   return (
-    <Card className="mt-6 w-1/3 p-4 font-poppins" placeholder="">
+    <Card className="lg:mt-6 lg:w-1/3 md:w-full md:my-2 sm:my-2 sm:w-full sm:mx-auto w-full mx-auto my-2  font-poppins" placeholder="">
       <CardHeader color="white" className="grid items-center relative h-fit" placeholder="">
         <img src={image} className="object-fill" alt="card-image" />
       </CardHeader>

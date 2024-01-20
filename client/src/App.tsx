@@ -30,7 +30,6 @@ function App() {
   const projects = useRef() as React.MutableRefObject<HTMLDivElement>;
   const contact = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  // const [viewImage, setViewImage] = useState<boolean>(false);
   const [avatar, setAvatar] = useState<string>("");
   const [repos, setRepos] = useState<repo[]>([]);
   const [loading, setLoading] = useState(false);
@@ -54,7 +53,7 @@ function App() {
     "scholarship!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456421/gadget-store/kh0cum8cfkb4hwa6dg7l.png",
     "sda!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456889/gadget-store/tmafjkxcttnzqjnpdi93.png",
     "sudoku!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456421/gadget-store/sl8tmc385fkothhl8g0x.png",
-    "weather!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456423/gadget-store/flp9bkrxx4nik0tby561.png",
+    "weather!http://res.cloudinary.com/dv3qbj0bn/image/upload/v1705748723/gadget-store/e2glyvsyxj5ad1t8m0w4.png",
   ];
   const gitUrl: string = import.meta.env.VITE_GITHUB_URL;
   const getRepos = useCallback(() => {
@@ -98,7 +97,6 @@ function App() {
     )
       return;
     setLoading(true);
-    console.log(message);
     await fetch("/api/create", {
       method: "POST",
       headers: {
@@ -141,7 +139,6 @@ function App() {
       <Toaster position="bottom-center" reverseOrder={false} />
       <div className="ellipse-red" />
       <div className="ellipse-green" />
-      {/* setViewImage={setViewImage} */}
       <StickyNavbar
         avatar={avatar}
         home={home}
@@ -151,24 +148,24 @@ function App() {
       />
       <div
         ref={home}
-        className="flex flex-col items-start justify-center h-fit py-32 w-screen z-10 border-solid border-b-2 border-gray-300"
+        className="flex flex-col items-start justify-center h-fit py-32 w-screen z-10 border-solid border-b-2 border-gray-300 z-10 lg:p-20 p-6"
       >
         <Typography
           placeholder=""
-          className="inline-block text-[#54877BB9] text-5xl font-normal font-inika ml-20 py-1"
+          className="inline-block text-[#54877BB9] lg:text-5xl md:text-4xl sm:text-3xl  text-3xl font-normal font-inika py-1"
         >
           Hi I'm a
         </Typography>
         <Typography
           placeholder=""
           ref={writeText}
-          className="inline-block text-neutral-900 text-7xl font-normal font-istok ml-20 pb-2"
+          className="inline-block text-gray-900 lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-normal font-istok pb-2"
         >
           Web Developer
         </Typography>
         <Typography
           placeholder=""
-          className="text-xl text-justify w-2/5 ml-20 font-poppins pt-4"
+          className="lg:text-xl md:text-lg md:text-md sm:text-md text-justify lg:w-2/5 md:w-3/5 sm:w-4/5 w-4/5 mr-2 font-poppins pt-4"
         >
           Shivam Soni, an passionate developer. Currently, pursuing my
           Bachelor's in Computer Science from Atma Ram Sanatan Dharma College.
@@ -177,20 +174,20 @@ function App() {
         </Typography>
         <Button
           placeholder=""
-          className="w-80 rounded-lg font-poppins bg-white text-gray-800 text-3xl ml-28 mt-10 p-6 border-solid border-2 border-gray-400 font-normal capitalize"
+          className="rounded-lg font-poppins bg-white text-gray-800 lg:text-3xl md:text-2xl sm:text-xl text-xl ml-8 mt-10 lg:px-14 lg:py-6 border-solid border-2 border-gray-400 font-normal capitalize"
           onClick={() => contact.current.scrollIntoView()}
         >
           Connect
         </Button>
       </div>
-      <div ref={skills} className="h-fit w-screen z-10 pt-10">
+      <div ref={skills} className="h-fit w-screen z-10 pt-10 p-6">
         <Typography
           placeholder=""
-          className="ml-20 text-black text-4xl font-normal font-serif"
+          className="mx-auto text-black lg:text-4xl text-3xl font-normal font-serif"
         >
           Major Skills
         </Typography>
-        <div className="flex flex-row flex-wrap justify-center align-center mt-10 mx-10 font-poppins">
+        <div className="flex flex-row flex-wrap justify-center align-center mt-10 lg:mx-10 mx-4 font-poppins">
           <Tooltip content="ReactJS" placement="bottom">
             <div className="basis-44 p-4 m-1">
               <img className="contain" src={react} alt="" />
@@ -223,10 +220,10 @@ function App() {
           </Tooltip>
         </div>
       </div>
-      <div className="flex flex-row flex-wrap gap-2 justify-evenly pt-10 pb-4 pl-20 border-solid border-b-2 border-gray-300">
+      <div className="flex flex-row flex-wrap gap-2 justify-evenly pt-10 pb-4 border-solid border-b-2 border-gray-300 p-6">
         <Typography
           placeholder=""
-          className="w-full pb-6 text-black text-4xl font-normal font-serif"
+          className="w-full pb-6 text-black lg:text-4xl text-3xl font-normal font-serif"
         >
           All Skills
         </Typography>
@@ -343,14 +340,14 @@ function App() {
           </ul>
         </div>
       </div>
-      <div ref={projects} className="pl-2 w-screen">
+      <div ref={projects} className="p-6 w-screen">
         <Typography
           placeholder=""
-          className="ml-20 mt-10 pb-8 text-black text-4xl font-serif"
+          className="mt-10 pb-8 text-black lg:text-4xl text-3xl font-serif"
         >
           Projects
         </Typography>
-        <div className="flex justify-center w-screen px-10 font-poppins">
+        <div className="flex justify-center w-screen sm:flex-col sm:gap-2 flex-col md:flex-col md:gap-2 lg:flex-row gap-6 font-poppins">
           {repos.map((repo) => {
             return (
               <CardDefault

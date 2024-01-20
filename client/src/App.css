@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inika&family=Inter&family=Istok+Web&family=Poppins&display=swap");
 
-.font-poppins{
+.font-poppins {
   font-family: "Poppins", "sans-serif";
 }
 
@@ -32,30 +32,15 @@
   filter: blur(2px);
 }
 
-.ellipse-blue {
-  position: absolute;
-  width: 103.6245rem;
-  height: 80.03763rem;
-  transform: rotate(-48.69deg) translate(-55%, -35%);
-  border-radius: 103.6245rem;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    #a8c6e2 0%,
-    rgba(255, 253, 253, 0) 100%
-  );
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    #f2e5b6 0%,
-    rgba(255, 253, 253, 0) 100%
-  );
-  filter: blur(2px);
+@media only screen and (max-width: 768px) and (min-width: 640px) {
+  .ellipse-red {
+    transform: translate(-4%, -80%) rotate(-46.693deg);
+    border-radius: 100%;
+  }
 }
 
-.ellipse-yellow {
-  position: absolute;
-  width: 45.125rem;
-  height: 125.71556rem;
-  transform: rotate(-39.875deg);
-  border-radius: 125.71556rem;
-  filter: blur(5px);
+@media only screen and (max-width: 640px){
+  .ellipse-red{
+    transform: translate(-10%, -40%) rotate(0deg);
+  }
 }
