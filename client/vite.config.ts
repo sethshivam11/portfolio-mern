@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "https://shivam-portfolio.onrender.com"
+      "/api": {
+        target: "https://shivam-portfolio.onrender.com",
+        changeOrigin: true,
+        secure: true,
+      }
     }
   }
 })
