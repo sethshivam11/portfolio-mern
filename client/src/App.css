@@ -39,8 +39,3 @@
   }
 }
 
-@media only screen and (max-width: 640px){
-  .ellipse-red{
-    transform: translate(-10%, -40%) rotate(0deg);
-  }
-}

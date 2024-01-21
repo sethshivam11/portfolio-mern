@@ -148,24 +148,24 @@ function App() {
       />
       <div
         ref={home}
-        className="flex flex-col items-start justify-center h-fit py-32 w-screen z-10 border-solid border-b-2 border-gray-300 z-10 lg:p-20 p-6"
+        className="flex flex-col items-start justify-center lg:h-fit md:h-fit h-screen  py-32 w-screen border-solid border-b-2 border-gray-300 z-10 lg:p-20 p-6"
       >
         <Typography
           placeholder=""
-          className="inline-block text-[#54877BB9] lg:text-5xl md:text-4xl sm:text-3xl  text-3xl font-normal font-inika py-1"
+          className="inline-block text-green-600/50 lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-normal font-inika py-1 lg:pt-12 md:pt-12"
         >
           Hi I'm a
         </Typography>
         <Typography
           placeholder=""
           ref={writeText}
-          className="inline-block text-gray-900 lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-normal font-istok pb-2"
+          className="inline-block text-slate-950 lg:text-7xl md:text-6xl sm:text-5xl text-4xl font-normal font-istok pb-2"
         >
           Web Developer
         </Typography>
         <Typography
           placeholder=""
-          className="lg:text-xl md:text-lg md:text-md sm:text-md text-justify lg:w-2/5 md:w-3/5 sm:w-4/5 w-4/5 mr-2 font-poppins pt-4"
+          className="lg:text-xl md:text-lg md:text-md sm:text-md text-justify text-slate-700 lg:w-2/5 md:w-3/5 sm:w-4/5 w-4/5 mr-2 font-poppins pt-4"
         >
           Shivam Soni, an passionate developer. Currently, pursuing my
           Bachelor's in Computer Science from Atma Ram Sanatan Dharma College.
@@ -174,7 +174,7 @@ function App() {
         </Typography>
         <Button
           placeholder=""
-          className="rounded-lg font-poppins bg-white text-gray-800 lg:text-3xl md:text-2xl sm:text-xl text-xl ml-8 mt-10 lg:px-14 lg:py-6 border-solid border-2 border-gray-400 font-normal capitalize"
+          className="rounded-lg font-poppins bg-white text-gray-800 lg:text-3xl md:text-2xl sm:text-xl text-xl ml-8 mt-10 lg:px-14 lg:py-6 ring-2 ring-gray-400 font-normal capitalize"
           onClick={() => contact.current.scrollIntoView()}
         >
           Connect
@@ -183,38 +183,38 @@ function App() {
       <div ref={skills} className="h-fit w-screen z-10 pt-10 p-6">
         <Typography
           placeholder=""
-          className="mx-auto text-black lg:text-4xl text-3xl font-normal font-serif"
+          className="text-black lg:text-4xl lg:pl-10 md:pl-6 text-3xl font-normal font-serif"
         >
           Major Skills
         </Typography>
         <div className="flex flex-row flex-wrap justify-center align-center mt-10 lg:mx-10 mx-4 font-poppins">
           <Tooltip content="ReactJS" placement="bottom">
-            <div className="basis-44 p-4 m-1">
+            <div className="basis-24 lg:basis-44 md:basis-36">
               <img className="contain" src={react} alt="" />
             </div>
           </Tooltip>
           <Tooltip content="JavaScript" placement="bottom">
-            <div className="basis-44 p-4 m-1">
+            <div className="basis-24 lg:basis-44 md:basis-36">
               <img className="contain" src={js} alt="" />
             </div>
           </Tooltip>
           <Tooltip content="ExpressJS" placement="bottom">
-            <div className="basis-44 p-4 m-1">
+            <div className="basis-24 lg:basis-44 md:basis-36">
               <img className="contain" src={express} alt="" />
             </div>
           </Tooltip>
           <Tooltip content="NodeJS" placement="bottom">
-            <div className="basis-44 p-4 m-1">
+            <div className="basis-24 lg:basis-44 md:basis-36">
               <img className="contain" src={node} alt="" />
             </div>
           </Tooltip>
           <Tooltip content="Git & Github" placement="bottom">
-            <div className="basis-44 p-4 m-1">
+            <div className="basis-24 lg:basis-44 md:basis-36">
               <img className="contain" src={github} alt="" />
             </div>
           </Tooltip>
           <Tooltip content="MongoDB" placement="bottom">
-            <div className="basis-44 p-4 m-1">
+            <div className="basis-24 lg:basis-44 md:basis-36">
               <img className="contain" src={mongo} alt="" />
             </div>
           </Tooltip>
@@ -223,7 +223,7 @@ function App() {
       <div className="flex flex-row flex-wrap gap-2 justify-evenly pt-10 pb-4 border-solid border-b-2 border-gray-300 p-6">
         <Typography
           placeholder=""
-          className="w-full pb-6 text-black lg:text-4xl text-3xl font-normal font-serif"
+          className="w-full pb-6 text-black lg:text-4xl lg:pl-10 md:pl-6 text-3xl font-normal font-serif"
         >
           All Skills
         </Typography>
@@ -238,28 +238,35 @@ function App() {
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-orange-700 px-3 py-2 rounded-lg"
+              className="ring-2 ring-orange-700 px-3 py-2 rounded-lg"
             >
               HTML
             </Typography>
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-cyan-400 px-3 py-2 rounded-lg"
+              className="ring-2 ring-cyan-400 px-3 py-2 rounded-lg"
             >
               CSS
             </Typography>
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-amber-300 px-3 py-2 rounded-lg"
+              className="ring-2 ring-amber-300 px-3 py-2 rounded-lg"
             >
               JavaScript
             </Typography>
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-blue-500 px-3 py-2 rounded-lg"
+              className="ring-2 ring-sky-600 px-3 py-2 rounded-lg"
+            >
+              Tailwind CSS
+            </Typography>
+            <Typography
+              placeholder=""
+              as="li"
+              className="ring-2 ring-blue-500 px-3 py-2 rounded-lg"
             >
               ReactJS
             </Typography>
@@ -277,21 +284,21 @@ function App() {
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-green-300 px-3 py-2 rounded-lg"
+              className="ring-2 ring-green-300 px-3 py-2 rounded-lg"
             >
               NodeJS
             </Typography>
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-gray-300 px-3 py-2 rounded-lg"
+              className="ring-2 ring-gray-300 px-3 py-2 rounded-lg"
             >
               ExpressJS
             </Typography>
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-blue-300 px-3 py-2 rounded-lg"
+              className="ring-2 ring-blue-300 px-3 py-2 rounded-lg"
             >
               TypeScript
             </Typography>
@@ -309,7 +316,7 @@ function App() {
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-green-500 px-3 py-2 rounded-lg"
+              className="ring-2 ring-green-500 px-3 py-2 rounded-lg"
             >
               MongoDB
             </Typography>
@@ -326,14 +333,14 @@ function App() {
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-gray-500 px-3 py-2 rounded-lg"
+              className="ring-2 ring-gray-500 px-3 py-2 rounded-lg"
             >
               Git & Github
             </Typography>
             <Typography
               placeholder=""
               as="li"
-              className="border-solid border-2 border-orange-300 px-3 py-2 rounded-lg"
+              className="ring-2 ring-orange-300 px-3 py-2 rounded-lg"
             >
               Linux Commands
             </Typography>
@@ -343,11 +350,11 @@ function App() {
       <div ref={projects} className="p-6 w-screen">
         <Typography
           placeholder=""
-          className="mt-10 pb-8 text-black lg:text-4xl text-3xl font-serif"
+          className="mt-10 pb-8 text-black lg:text-4xl lg:pl-10 md:pl-6 text-3xl font-serif"
         >
           Projects
         </Typography>
-        <div className="flex justify-center w-screen sm:flex-col sm:gap-2 flex-col md:flex-col md:gap-2 lg:flex-row gap-6 font-poppins">
+        <div className="flex justify-center w-fit sm:flex-col sm:gap-2 flex-col md:flex-col md:gap-2 lg:flex-row gap-6 font-poppins">
           {repos.map((repo) => {
             return (
               <CardDefault
@@ -364,11 +371,11 @@ function App() {
       </div>
       <div
         ref={contact}
-        className="w-full h-fit px-20 my-8 py-8 border-t-2 border-solid border-gray-200 font-poppins"
+        className="w-full h-fit lg:px-20 md:px-10 px-6 my-8 py-8 border-t-2 border-solid border-gray-200 font-poppins"
       >
         <Typography
           placeholder=""
-          className="bg-white text-4xl font-serif pb-6"
+          className="bg-white text-4xl font-serif pb-6 pl-4"
         >
           Connect with me...
         </Typography>
