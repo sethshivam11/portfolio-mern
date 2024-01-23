@@ -36,6 +36,7 @@ export function DialogWithForm({ isLoggedin, setLoggedin, setMessages, toast }) 
     })
       .then((res) => res.json())
       .then((resData: resData) => {
+        console.log(resData)
         if (resData.success) {
           setMessages(resData.msg);
           setOpen((cur) => !cur);

@@ -182,10 +182,10 @@ function App() {
                   placeholder=""
                   className="lg:text-xl md:text-lg md:text-md sm:text-md text-justify text-slate-700 lg:w-2/5 md:w-3/5 sm:w-4/5 w-4/5 mr-2 font-poppins pt-4"
                 >
-                  Shivam Soni, an passionate developer. Currently, pursuing my
-                  Bachelor's in Computer Science from Atma Ram Sanatan Dharma
-                  College. Looking for Internships to gain some industry
-                  practices and upgrade my skills accordingly.
+                  Shivam Soni, a passionate developer. Currently, pursuing
+                  Bachelor's in Computer Science from ARSD College, DU. Looking
+                  for Internships to gain some industry practices and upgrade my
+                  skills accordingly.
                 </Typography>
                 <Button
                   placeholder=""
@@ -398,21 +398,28 @@ function App() {
                   name="Name"
                   value={message.name}
                   onChange={inputChange}
+                  title="Name"
+                  autoComplete="given-name"
                 />
                 <InputDefault
                   name="Phone"
                   value={message.phone}
                   onChange={inputChange}
+                  title="Phone"
+                  autoComplete="tel"
                 />
                 <InputDefault
                   name="Email"
                   value={message.email}
                   onChange={inputChange}
+                  title="Email"
+                  autoComplete="email"
                 />
                 <TextareaDefault
                   message="Message"
                   value={message.message}
                   onChange={inputChange}
+                  title="Message"
                 />
                 <Button
                   placeholder=""
@@ -461,7 +468,7 @@ function App() {
                 All Messages
               </Typography>
               <div
-                className={`overflow-y-scroll h-screen ring-2 ring-gray-500 px-4 pb-4 dark-scrollbar rounded-lg mb-1 ${
+                className={`overflow-y-scroll h-screen ring-2 ring-gray-500 px-6 pb-4 dark-scrollbar rounded-lg mb-1 ${
                   isLoggedin ? "" : "hidden"
                 }`}
               >
@@ -485,30 +492,6 @@ function App() {
                     message="No messages since last update"
                   />
                 )}
-                <SimpleCard
-                  name="No Messages"
-                  email="N/A"
-                  phone="N/A"
-                  message="No messages since last update"
-                />
-                <SimpleCard
-                  name="No Messages"
-                  email="N/A"
-                  phone="N/A"
-                  message="No messages since last update"
-                />
-                <SimpleCard
-                  name="No Messages"
-                  email="N/A"
-                  phone="N/A"
-                  message="No messages since last update"
-                />
-                <SimpleCard
-                  name="No Messages"
-                  email="N/A"
-                  phone="N/A"
-                  message="No messages since last update"
-                />
               </div>
             </section>
           }

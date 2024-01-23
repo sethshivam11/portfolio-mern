@@ -11,7 +11,7 @@ export function SimpleCard({ email, phone, message, name }) {
   return (
     <Card
       placeholder=""
-      className="mt-6 w-96 bg-transparent ring-1 ring-gray-400"
+      className="mt-6 w-full bg-transparent ring-1 ring-gray-400"
     >
       <CardBody placeholder="">
         <Typography placeholder="" variant="h5" color="white" className="mb-2">
