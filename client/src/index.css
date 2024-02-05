@@ -5,14 +5,3 @@
 html {
   scroll-behavior: smooth;
 }
-@layer utilities {
-  .dark-scrollbar::-webkit-scrollbar {
-    background: #747474;
-    width: 5px;
-    border-radius: 5px;
-  }
-  .dark-scrollbar::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: #313131;
-  }
-}

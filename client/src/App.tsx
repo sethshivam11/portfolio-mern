@@ -445,7 +445,7 @@ function App() {
         />
         <Route
           element={
-            <section className="bg-black/95 scroll-smooth flex flex-col items-center justify-center h-screen w-screen">
+            <section className="bg-black/95 scroll-smooth flex flex-col items-center justify-center min-h-screen w-full">
               <Toaster position="bottom-center" reverseOrder={false} />
               <Typography
                 placeholder=""
@@ -461,39 +461,43 @@ function App() {
                 setMessages={setMessages}
                 toast={toast}
               />
-              <Typography
-                placeholder=""
-                className={`lg:text-5xl my-6 md:text-4xl text-3xl text-white ${
-                  isLoggedin ? "" : "hidden"
-                }`}
-              >
-                All Messages
-              </Typography>
-              <div
-                className={`overflow-y-scroll h-screen ring-2 ring-gray-500 px-6 pb-4 dark-scrollbar rounded-lg mb-1 ${
-                  isLoggedin ? "" : "hidden"
-                }`}
-              >
-                {messages.length !== 0 ? (
-                  messages.map((msg, index) => {
-                    return (
+              <div className={`w-full h-full min-h-screen ${isLoggedin ? "": "hidden"}`}>
+                <Typography
+                  placeholder=""
+                  className={`lg:text-5xl my-6 md:text-4xl text-3xl text-white block text-center ${
+                    isLoggedin ? "" : "hidden"
+                  }`}
+                >
+                  All Messages
+                </Typography>
+                <div
+                  className={`w-full h-fit min-h-96 p-2 mb-2 flex flex-row flex-wrap items-start justify-around gap-2 ${
+                    isLoggedin ? "" : "hidden"
+                  }`}
+                >
+                  {messages.length !== 0 ? (
+                    messages.map((msg, index) => {
+                      return (
+                        <SimpleCard
+                          key={index}
+                          name={msg.name}
+                          email={msg.email}
+                          phone={msg.phone}
+                          message={msg.message}
+                        />
+                      );
+                    })
+                  ) : (
+                    <>
                       <SimpleCard
-                        key={index}
-                        name={msg.name}
-                        email={msg.email}
-                        phone={msg.phone}
-                        message={msg.message}
+                        name="No Messages"
+                        email="N/A"
+                        phone="N/A"
+                        message="No messages since last update"
                       />
-                    );
-                  })
-                ) : (
-                  <SimpleCard
-                    name="No Messages"
-                    email="N/A"
-                    phone="N/A"
-                    message="No messages since last update"
-                  />
-                )}
+                    </>
+                  )}
+                </div>
               </div>
             </section>
           }
