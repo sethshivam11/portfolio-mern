@@ -4,7 +4,7 @@ const mongoUrl = process.env.MONGODB_URI as string
 
 export const connectDB = async () => {
     try {
-        const connectionInstance = await mongoose.connect(mongoUrl)
+        const connectionInstance = await mongoose.connect(`${mongoUrl}/portfolio`)
         console.log(`\nMongoDB connected !! DB HOST: ${connectionInstance.connection.host}`)
     } catch (error) {
         console.log("MongoDB connection FAILED \n", error)
