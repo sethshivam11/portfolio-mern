@@ -165,7 +165,7 @@ function App() {
               />
               <div
                 ref={home}
-                className="flex flex-col items-start justify-center lg:h-fit md:h-fit h-screen  py-32 w-screen border-solid border-b-2 border-gray-300 z-10 lg:p-20 p-6"
+                className="flex flex-col items-start justify-center h-screen py-32 w-screen border-solid border-b-2 border-gray-300 z-10 lg:p-20 p-6"
               >
                 <Typography
                   placeholder=""
