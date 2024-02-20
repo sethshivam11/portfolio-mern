@@ -316,10 +316,10 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                     className="ml-4 capitalize"
                     size="lg"
                     disabled={
-                        message.name.length == 0 ||
-                        message.phone.length == 0 ||
-                        message.message.length == 0 ||
-                        message.email.length == 0
+                        message.name.trim().length == 0 ||
+                        message.phone.trim().length == 0 ||
+                        message.message.trim().length == 0 ||
+                        message.email.trim().length == 0
                     }
                 >
                     Submit

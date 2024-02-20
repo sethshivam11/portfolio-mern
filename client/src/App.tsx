@@ -86,13 +86,17 @@ function App() {
   const saveMessage = async () => {
     if (
       !(
-        message.name.length ||
-        message.email.length ||
-        message.message.length ||
-        message.phone.length
+        message.name.trim().length &&
+        message.email.trim().length &&
+        message.message.trim().length &&
+        message.phone.trim().length
       )
-    )
-      return;
+    ) {
+      return
+    }
+    if (/[a-zA-Z]/.test(message.phone.trim())) {
+      return toast.error("Phone should contain only numbers");
+    }
     setLoading(true);
     await fetch("/api/create", {
       method: "POST",
