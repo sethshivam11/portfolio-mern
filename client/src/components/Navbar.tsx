@@ -1,5 +1,4 @@
 type Props = {
-  // setViewImage: Dispatch<SetStateAction<State>>;
   home: React.MutableRefObject<HTMLDivElement>;
   skills: React.MutableRefObject<HTMLDivElement>;
   projects: React.MutableRefObject<HTMLDivElement>;
@@ -73,6 +72,7 @@ export function StickyNavbar({ home, skills, projects, contact, avatar }: Props)
   return (
     <div className="max-h-[768px] w-[calc(100%+48px)] overflow-scroll text-2xl">
       <Navbar
+        id="navbar"
         placeholder=""
         className="fixed top-0 z-10 h-max max-w-full align-center rounded-none px-4 py-2 lg:px-8 lg:py-4 left-0"
       >

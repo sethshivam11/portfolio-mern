@@ -12,6 +12,7 @@ import github from "../assets/github.svg";
 import React from "react";
 import { message, repo } from "../App";
 import Typewriter from "typewriter-effect"
+import Footer from "./Footer";
 
 interface Props {
     avatar: string,
@@ -90,7 +91,7 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                 >
                     Major Skills
                 </Typography>
-                <div className="flex flex-row flex-wrap justify-center align-center mt-10 lg:mx-10 mx-4 font-poppins">
+                <div className="grid md:grid-cols-6 grid-cols-3 place-content-center mt-10 lg:mx-10 mx-4 font-poppins">
                     <Tooltip content="ReactJS" placement="bottom">
                         <div className="basis-24 lg:basis-44 md:basis-36">
                             <img className="contain" src={react} alt="" />
@@ -123,14 +124,14 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                     </Tooltip>
                 </div>
             </div>
-            <div className="flex flex-row flex-wrap gap-2 justify-evenly pt-10 pb-4 border-solid border-b-2 border-gray-300 p-6">
-                <Typography
-                    placeholder=""
-                    className="w-full pb-6 text-black lg:text-4xl lg:pl-10 md:pl-6 text-3xl font-normal font-serif"
-                >
-                    All Skills
-                </Typography>
-                <div className="w-1/4 pb-8 basis-40">
+            <Typography
+                placeholder=""
+                className="w-full pb-6 ml-6 text-black lg:text-4xl lg:pl-10 md:pl-6 text-3xl font-normal font-serif"
+            >
+                All Skills
+            </Typography>
+            <ul className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-2 place-content-center border-solid border-b-2 border-gray-300 md:px-20 sm:px-12 px-8 pb-4">
+                <li>
                     <Typography
                         placeholder=""
                         className="text-black text-2xl font-poppins py-4"
@@ -174,9 +175,9 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                             ReactJS
                         </Typography>
                     </ul>
-                </div>
+                </li>
 
-                <div className="w-1/4 pb-8 basis-40">
+                <li>
                     <Typography
                         placeholder=""
                         className="pt-4 text-black text-2xl font-poppins py-4"
@@ -206,9 +207,9 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                             TypeScript
                         </Typography>
                     </ul>
-                </div>
+                </li>
 
-                <div className="w-1/4 pb-8 basis-40">
+                <li>
                     <Typography
                         placeholder=""
                         className="pt-4 text-black text-2xl font-poppins py-4"
@@ -224,8 +225,9 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                             MongoDB
                         </Typography>
                     </ul>
-                </div>
-                <div className="w-1/4 pb-8 basis-40 ">
+                </li>
+
+                <li>
                     <Typography
                         placeholder=""
                         className="pt-4 text-black text-2xl font-poppins py-4"
@@ -248,8 +250,8 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                             Linux Commands
                         </Typography>
                     </ul>
-                </div>
-            </div>
+                </li>
+            </ul>
             <div ref={projects} className="p-6 w-screen">
                 <Typography
                     placeholder=""
@@ -274,11 +276,11 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
             </div>
             <div
                 ref={contact}
-                className="w-full h-fit lg:px-20 md:px-10 px-6 my-8 py-8 border-t-2 border-solid border-gray-200 font-poppins"
+                className="w-full h-fit lg:px-20 md:px-10 px-6 mt-8 py-8 border-t-2 border-solid border-gray-200 font-poppins bg-gray-200"
             >
                 <Typography
                     placeholder=""
-                    className="bg-white text-4xl font-serif pb-6 pl-4"
+                    className="bg-transparent lg:text-4xl text-3xl font-serif pb-6 pl-4"
                 >
                     Connect with me...
                 </Typography>
@@ -325,6 +327,7 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                     Submit
                 </Button>
             </div>
+            <Footer />
         </section>
     )
 }
