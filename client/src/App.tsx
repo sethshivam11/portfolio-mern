@@ -122,6 +122,7 @@ function App() {
   useEffect(() => {
     getRepos();
   }, [getRepos]);
+
   return (
     <BrowserRouter>
       <Toaster position="bottom-center" reverseOrder={false} />

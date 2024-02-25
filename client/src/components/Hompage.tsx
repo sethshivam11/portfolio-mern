@@ -30,9 +30,10 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
     const skills = React.useRef() as React.MutableRefObject<HTMLDivElement>;
     const projects = React.useRef() as React.MutableRefObject<HTMLDivElement>;
     const contact = React.useRef() as React.MutableRefObject<HTMLDivElement>;
+    
 
     return (
-        <section className="overflow-hidden relative scroll-smooth">
+        <section className="overflow-hidden relative scroll-smooth dark:bg-black/95 dark:text-gray-200 transition-colors duration-400">
             <div className="ellipse-red" />
             <div className="ellipse-green" />
             <StickyNavbar

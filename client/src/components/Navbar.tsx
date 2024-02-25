@@ -3,7 +3,7 @@ type Props = {
   skills: React.MutableRefObject<HTMLDivElement>;
   projects: React.MutableRefObject<HTMLDivElement>;
   contact: React.MutableRefObject<HTMLDivElement>;
-  avatar: string
+  avatar: string,
 };
 
 import React from "react";
@@ -14,8 +14,10 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
+
 export function StickyNavbar({ home, skills, projects, contact, avatar }: Props) {
   const [openNav, setOpenNav] = React.useState(false);
+
 
   React.useEffect(() => {
     window.addEventListener(
@@ -74,9 +76,9 @@ export function StickyNavbar({ home, skills, projects, contact, avatar }: Props)
       <Navbar
         id="navbar"
         placeholder=""
-        className="fixed top-0 z-10 h-max max-w-full align-center rounded-none px-4 py-2 lg:px-8 lg:py-4 left-0"
+        className="fixed top-0 z-10 h-max max-w-full align-center rounded-none px-4 py-2 lg:px-8 lg:py-4 left-0 dark:bg-black/50"
       >
-        <div className="flex items-center justify-start w-full text-blue-gray-900">
+        <div className="flex items-center justify-start w-full text-blue-gray-900 dark:text-gray-200">
           <img className="rounded-full contain w-10 mr-2" src={avatar} alt="" />
           <Typography
             placeholder=""
