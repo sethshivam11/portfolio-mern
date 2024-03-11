@@ -1,7 +1,6 @@
 import "./App.css";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Hompage from "./components/Hompage.tsx";
 import MyPage from "./components/MyPage.tsx";
@@ -62,7 +61,7 @@ function App() {
           if (
             repository.name === "todo" ||
             repository.name === "gadgetstore" ||
-            repository.name === "moviesandtv"
+            repository.name === "weather"
           ) {
             mapData.push(repository);
             let name: string = repository.name;
