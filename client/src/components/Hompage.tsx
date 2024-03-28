@@ -290,22 +290,26 @@ const Hompage = ({ avatar, message, inputChange, saveMessage, loading, repos }: 
                     value={message.name}
                     onChange={inputChange}
                     title="Name"
+                    inputMode="text"
                     autoComplete="given-name"
-                />
+                    />
                 <InputDefault
                     name="Phone"
                     value={message.phone}
+                    type="number"
                     onChange={inputChange}
                     title="Phone"
+                    inputMode="numeric"
                     autoComplete="tel"
-                />
+                    />
                 <InputDefault
                     name="Email"
                     value={message.email}
                     onChange={inputChange}
                     title="Email"
+                    inputMode="email"
                     autoComplete="email"
-                />
+                    />
                 <TextareaDefault
                     message="Message"
                     value={message.message}
