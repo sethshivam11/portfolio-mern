@@ -9,6 +9,6 @@ This is a portfolio website built on top of MERN Stack (MongoDB, ExpressJS, Reac
 
 ## Tech Stack
 
-**Client:** React, TailwindCSS Material tailwind 
+**Client:** React, TailwindCSS, Material tailwind 
 
 **Server:** Node, Express, MongoDB, Typescript 

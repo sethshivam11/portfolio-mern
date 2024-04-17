@@ -21,7 +21,7 @@ export interface message {
 }
 
 function App() {
-
+  
   const [avatar, setAvatar] = useState<string>("");
   const [repos, setRepos] = useState<repo[]>([]);
   const [loading, setLoading] = useState(false);
@@ -50,6 +50,8 @@ function App() {
     "weather!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1705748723/gadget-store/e2glyvsyxj5ad1t8m0w4.png",
     "gpt-clone!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1707051362/gadget-store/fgkfhdy057qwcg3bpuar.png",
     "todo!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1707051363/gadget-store/omkupcly4hprbbtbivql.png",
+    "campus-space!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356341/gadget-store/v7v4jupfz8eajsw19ogv.png",
+    "sociial!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356677/gadget-store/efzjxqo1s2pfpw4db60r.png",
   ];
   const gitUrl: string = import.meta.env.VITE_GITHUB_URL;
   const getRepos = useCallback(() => {
@@ -59,9 +61,9 @@ function App() {
         let mapData: repo[] = [];
         data.forEach((repository: repo) => {
           if (
-            repository.name === "todo" ||
+            repository.name === "campus-space" ||
             repository.name === "gadgetstore" ||
-            repository.name === "weather"
+            repository.name === "sociial"
           ) {
             mapData.push(repository);
             let name: string = repository.name;
@@ -91,7 +93,7 @@ function App() {
         message.phone.trim().length
       )
     ) {
-      return
+      return;
     }
     if (/[a-zA-Z]/.test(message.phone.trim())) {
       return toast.error("Phone should contain only numbers");

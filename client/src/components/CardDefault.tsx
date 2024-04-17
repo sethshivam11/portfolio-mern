@@ -48,7 +48,7 @@ export const CardDefault: React.FC<CardDefault> = ({
           variant="outlined"
           onClick={() => window.open(code, "_blank")}
         >
-          View Code
+          Code
         </Button>
       </CardFooter>
     </Card>

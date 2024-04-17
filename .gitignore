@@ -15,5 +15,6 @@ client/!.vscode/extensions.json
 
 # Server files
 .env
+nodemon.json
 node_modules
 server/dist

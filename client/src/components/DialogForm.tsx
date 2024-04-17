@@ -16,7 +16,12 @@ interface resData {
   message: string;
 }
 
-export function DialogWithForm({ isLoggedin, setLoggedin, setMessages, toast }) {
+export function DialogWithForm({
+  isLoggedin,
+  setLoggedin,
+  setMessages,
+  toast,
+}) {
   const [creds, setCreds] = React.useState({
     username: "",
     password: "",
@@ -27,27 +32,30 @@ export function DialogWithForm({ isLoggedin, setLoggedin, setMessages, toast }) 
     setOpen((cur) => !cur);
   };
   const handleSubmit = () => {
-    fetch("/api/messages", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(creds),
-    })
+    fetch(
+      "https://urban-space-goldfish-7gr4w7vpv6rfqxj-3000.app.github.dev/api/messages",
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(creds),
+      }
+    )
       .then((res) => res.json())
       .then((resData: resData) => {
-        console.log(resData)
+        console.log(resData);
         if (resData.success) {
           setMessages(resData.msg);
           setOpen((cur) => !cur);
           setLoggedin(true);
-          toast.success("Logged in successfully")
+          toast.success("Logged in successfully");
         }
       })
       .catch((err) => {
         console.log(err);
         setOpen((cur) => !cur);
-        toast.error("Something went wrong!")
+        toast.error("Something went wrong!");
       });
   };
 
