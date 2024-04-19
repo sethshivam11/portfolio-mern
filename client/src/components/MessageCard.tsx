@@ -3,11 +3,21 @@ import {
   CardBody,
   Typography,
   CardFooter,
-  Button,
-  Tooltip
+  Tooltip,
 } from "@material-tailwind/react";
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
+import React from "react";
 
 export function SimpleCard({ email, phone, message, name }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(!open);
   return (
     <Card
       placeholder=""
@@ -22,6 +32,7 @@ export function SimpleCard({ email, phone, message, name }) {
         </Typography>
       </CardBody>
       <CardFooter placeholder="" className="pt-0">
+        <div className="flex items-center justify-center gap-2">
         <Tooltip
           content={phone}
           placement="top"
@@ -52,7 +63,7 @@ export function SimpleCard({ email, phone, message, name }) {
         >
           <Button
             placeholder=""
-            className="capitalize mt-2"
+            className="capitalize"
             variant="outlined"
             color="white"
             fullWidth
@@ -61,6 +72,43 @@ export function SimpleCard({ email, phone, message, name }) {
             Mail
           </Button>
         </Tooltip>
+        </div>
+          <>
+            <Button
+              onClick={handleOpen}
+              variant="text"
+              size="md"
+              color="red"
+              placeholder=""
+              className="mt-2 capitalize w-full hidden"
+            >
+              Delete
+            </Button>
+            <Dialog open={open} handler={handleOpen} placeholder="" className="bg-black/90 ring-2 ring-gray-500 text-white">
+              <DialogHeader placeholder="" className="text-gray-200">Delete Message</DialogHeader>
+              <DialogBody placeholder="" className="text-gray-300">
+               Are you sure you want to delete this message. This action cannot be undone.
+              </DialogBody>
+              <DialogFooter placeholder="">
+                <Button
+                  variant="text"
+                  placeholder=""
+                  onClick={handleOpen}
+                  className="mr-1 text-gray-200 hover:bg-gray-800"
+                >
+                  <span>Cancel</span>
+                </Button>
+                <Button
+                  variant="gradient"
+                  color="red"
+                  onClick={handleOpen}
+                  placeholder=""
+                >
+                  <span>Confirm</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
+          </>
       </CardFooter>
     </Card>
   );

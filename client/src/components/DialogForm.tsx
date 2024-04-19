@@ -32,16 +32,13 @@ export function DialogWithForm({
     setOpen((cur) => !cur);
   };
   const handleSubmit = () => {
-    fetch(
-      "https://urban-space-goldfish-7gr4w7vpv6rfqxj-3000.app.github.dev/api/messages",
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(creds),
-      }
-    )
+    fetch("/api/messages", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(creds),
+    })
       .then((res) => res.json())
       .then((resData: resData) => {
         console.log(resData);
