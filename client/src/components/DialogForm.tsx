@@ -41,18 +41,20 @@ export function DialogWithForm({
     })
       .then((res) => res.json())
       .then((resData: resData) => {
-        console.log(resData);
         if (resData.success) {
           setMessages(resData.msg);
           setOpen((cur) => !cur);
           setLoggedin(true);
           toast.success("Logged in successfully");
+        } else {
+          toast.error(resData.message);
+          setOpen((cur) => !cur);
         }
       })
       .catch((err) => {
         console.log(err);
         setOpen((cur) => !cur);
-        toast.error("Something went wrong!");
+        toast.error(err?.message || "Something went wrong");
       });
   };
 

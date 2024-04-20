@@ -12,9 +12,9 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 // Routes
 app.post("/api/create", async (req: Request, res: Response) => {
     const { name, email, message, phone } = req.body
-    if(!name || !email || !message) {
+    if (!name || !email || !message) {
         return res.status(401).json({
-            success: false, 
+            success: false,
             message: "All fields are required"
         })
     }
@@ -39,7 +39,7 @@ app.post("/api/messages", async (req: Request, res: Response) => {
         })
     }
     try {
-        if (!(username === process.env.USER_ID && password === process.env.PASSWORD)){
+        if (!(username?.trim() === process.env.USER_ID && password?.trim() === process.env.PASSWORD)) {
             return res.status(200).json({
                 success: false,
                 message: "Invalid Credentials"
@@ -56,6 +56,45 @@ app.post("/api/messages", async (req: Request, res: Response) => {
         return res.status(500).json({
             success: false,
             message: "Internal Server Error!"
+        })
+    }
+})
+
+app.delete("/api/delete", async (req: Request, res: Response) => {
+    const { messageId, password } = req.query;
+
+    if (!messageId || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "All fields are required"
+        })
+    }
+
+    try {
+        if (!(typeof password === "string") || password.trim() !== process.env.PASSWORD) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid password"
+            })
+        }
+
+        const message = await Message.findByIdAndDelete(messageId);
+        if (!message) {
+            return res.status(400).json({
+                success: false,
+                message: "Message not found"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Message deleted successfully"
+        })
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong"
         })
     }
 })

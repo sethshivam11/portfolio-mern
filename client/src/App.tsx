@@ -5,7 +5,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Hompage from "./components/Hompage.tsx";
 import MyPage from "./components/MyPage.tsx";
 
-export interface repo {
+export interface Repo {
   homepage: string;
   name: string;
   description: string;
@@ -13,7 +13,8 @@ export interface repo {
   image: string;
 }
 
-export interface message {
+export interface Message {
+  _id: string;
   name: string;
   email: string;
   phone: string;
@@ -21,19 +22,19 @@ export interface message {
 }
 
 function App() {
-  
   const [avatar, setAvatar] = useState<string>("");
-  const [repos, setRepos] = useState<repo[]>([]);
+  const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(false);
   const [isLoggedin, setLoggedin] = useState(false);
-  const [messages, setMessages] = useState<message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [message, setMessage] = useState({
     name: "",
     phone: "",
     message: "",
     email: "",
   });
-  const images: string[] = [
+
+  const images = [
     "gadgetstore!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704454805/gadget-store/wanff6jdipyajbvr0ivy.png",
     "chatapp!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456419/gadget-store/coz0elqxhrucgsfefwf8.png",
     "cloudnotebook!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456418/gadget-store/zxbhft8dxwdwwcyiikf4.png",
@@ -53,13 +54,14 @@ function App() {
     "campus-space!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356341/gadget-store/v7v4jupfz8eajsw19ogv.png",
     "sociial!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356677/gadget-store/efzjxqo1s2pfpw4db60r.png",
   ];
+
   const gitUrl: string = import.meta.env.VITE_GITHUB_URL;
   const getRepos = useCallback(() => {
     fetch(`${gitUrl}/repos`)
       .then((res) => res.json())
       .then((data) => {
-        let mapData: repo[] = [];
-        data.forEach((repository: repo) => {
+        let mapData: Repo[] = [];
+        data.forEach((repository: Repo) => {
           if (
             repository.name === "campus-space" ||
             repository.name === "gadgetstore" ||
@@ -79,25 +81,14 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
+
   const inputChange = (e: ChangeEvent) => {
     let input = e.target as HTMLInputElement;
     e.preventDefault();
     setMessage({ ...message, [input.name]: input.value });
   };
+
   const saveMessage = async () => {
-    if (
-      !(
-        message.name.trim().length &&
-        message.email.trim().length &&
-        message.message.trim().length &&
-        message.phone.trim().length
-      )
-    ) {
-      return;
-    }
-    if (/[a-zA-Z]/.test(message.phone.trim())) {
-      return toast.error("Phone should contain only numbers");
-    }
     setLoading(true);
     await fetch("/api/create", {
       method: "POST",
@@ -120,6 +111,7 @@ function App() {
         toast.error("Some error occured");
       });
   };
+
   useEffect(() => {
     getRepos();
   }, [getRepos]);
