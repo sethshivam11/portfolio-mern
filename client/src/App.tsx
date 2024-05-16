@@ -52,7 +52,7 @@ function App() {
     "gpt-clone!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1707051362/gadget-store/fgkfhdy057qwcg3bpuar.png",
     "todo!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1707051363/gadget-store/omkupcly4hprbbtbivql.png",
     "campus-space!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356341/gadget-store/v7v4jupfz8eajsw19ogv.png",
-    "sociial!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356677/gadget-store/efzjxqo1s2pfpw4db60r.png",
+    "sociial!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1715840499/gadget-store/cptou5lr64gkqrzvkfjl.png",
   ];
 
   const gitUrl: string = import.meta.env.VITE_GITHUB_URL;
