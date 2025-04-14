@@ -29,30 +29,14 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [message, setMessage] = useState({
     name: "",
-    phone: "",
     message: "",
     email: "",
   });
 
   const images = [
-    "gadgetstore!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704454805/gadget-store/wanff6jdipyajbvr0ivy.png",
-    "chatapp!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456419/gadget-store/coz0elqxhrucgsfefwf8.png",
-    "cloudnotebook!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456418/gadget-store/zxbhft8dxwdwwcyiikf4.png",
-    "moviesandtv!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1706461801/gadget-store/wtjjddmuatsxzvpbyjps.png",
-    "2048!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456420/gadget-store/kfhxvzhotnfbukmb69hy.png",
-    "copypaste!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456418/gadget-store/flolutsgg2ei8goxnslg.png",
-    "grosery!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456425/gadget-store/ed7l6bcujfqy1cnaapt1.png",
-    "myonline!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456424/gadget-store/lfbl4cvuvf92xtyz2vk0.png",
-    "newsapp!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456421/gadget-store/dl8ytjgggiuwcnejk0ym.png",
-    "robospeaker!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456912/gadget-store/vgchgwjhexbnut7duthn.png",
-    "scholarship!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456421/gadget-store/kh0cum8cfkb4hwa6dg7l.png",
-    "sda!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456889/gadget-store/tmafjkxcttnzqjnpdi93.png",
-    "sudoku!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1704456421/gadget-store/sl8tmc385fkothhl8g0x.png",
-    "weather!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1705748723/gadget-store/e2glyvsyxj5ad1t8m0w4.png",
-    "gpt-clone!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1707051362/gadget-store/fgkfhdy057qwcg3bpuar.png",
-    "todo!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1707051363/gadget-store/omkupcly4hprbbtbivql.png",
-    "campus-space!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1713356341/gadget-store/v7v4jupfz8eajsw19ogv.png",
-    "sociial!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1715840499/gadget-store/cptou5lr64gkqrzvkfjl.png",
+    "gadget-store!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1744524957/portfolio/chzs9wo4zdhekhzxlb6d.png",
+    "campus-space!https://res.cloudinary.com/dv3qbj0bn/image/upload/v1744524945/portfolio/rr97kg4geno54vfoo8od.png",
+    "sociial!https://sociial.vercel.app/hero-light.png",
   ];
 
   const gitUrl: string = import.meta.env.VITE_GITHUB_URL;
@@ -63,9 +47,9 @@ function App() {
         let mapData: Repo[] = [];
         data.forEach((repository: Repo) => {
           if (
+            repository.name === "sociial" ||
             repository.name === "campus-space" ||
-            repository.name === "gadgetstore" ||
-            repository.name === "sociial"
+            repository.name === "gadget-store"
           ) {
             mapData.push(repository);
             let name: string = repository.name;
@@ -101,7 +85,7 @@ function App() {
       .then((data) => {
         if (data.success && data.message === "Message saved successfully") {
           setLoading(false);
-          setMessage({ name: "", message: "", phone: "", email: "" });
+          setMessage({ name: "", message: "", email: "" });
           toast.success("Message sent successfully");
         }
       })

@@ -18,7 +18,6 @@ interface Props {
   avatar: string;
   message: {
     name: string;
-    phone: string;
     email: string;
     message: string;
   };
@@ -303,15 +302,6 @@ const Hompage = ({
           autoComplete="given-name"
         />
         <InputDefault
-          name="Phone"
-          value={message.phone}
-          type="number"
-          onChange={inputChange}
-          title="Phone"
-          inputMode="numeric"
-          autoComplete="tel"
-        />
-        <InputDefault
           name="Email"
           value={message.email}
           onChange={inputChange}
@@ -333,7 +323,6 @@ const Hompage = ({
           size="lg"
           disabled={
             message.name.trim().length === 0 ||
-            message.phone.trim().length === 0 ||
             message.message.trim().length === 0 ||
             message.email.trim().length === 0
           }
